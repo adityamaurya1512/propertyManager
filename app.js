@@ -4,6 +4,7 @@ const connectDB = require('./db');
 const routes=require('./routes/routes')
 const rateLimit = require("express-rate-limit");
 const app = express();
+const PORT=process.env.PORT||3000
 app.use(express.json());
 
 connectDB();   
@@ -20,6 +21,6 @@ app.use('/api/v1', routes);
 
 
 // Start the server
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
